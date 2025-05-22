@@ -1,9 +1,9 @@
 import { ParkingLot } from "./parking-lot.js";
+import { Display } from "./display.js";
 
 const maxFillIntervalMillis = 1000;
 const maxEmptyIntervalMillis = 2000;
 const initialFillPhaseMillis = 5000;
-const refreshDisplayIntervalMillis = 250;
 
 const sleep = (millis: number) => new Promise((r) => setTimeout(r, millis));
 
@@ -26,18 +26,12 @@ const empty = async (lot: ParkingLot) => {
   }
 };
 
-const display = async (lot: ParkingLot) => {
-  while (true) {
-    console.log(`${lot.name}: ${lot.occupied}/${lot.capacity} occupied`);
-    await sleep(refreshDisplayIntervalMillis);
-  }
-};
-
 const bahnhofParking = new ParkingLot("Bahnhof Parking", 100);
-const screen = display(bahnhofParking);
+const display = new Display();
+bahnhofParking.attach(display);
+
 const filler = fill(bahnhofParking);
 await sleep(initialFillPhaseMillis);
 const emptier = empty(bahnhofParking);
-await screen;
 await filler;
 await emptier;
