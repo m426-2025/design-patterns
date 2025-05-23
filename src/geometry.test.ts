@@ -7,4 +7,5 @@ test("RectangleAdapter adapts Quadratic as a Rectangular object", () => {
   expect(Calculator.getArea(adapted)).toBeCloseTo(9);
   expect(Calculator.getPerimeter(adapted)).toBeCloseTo(12);
   expect(Calculator.getDiagonal(adapted)).toBeCloseTo(Math.sqrt(18));
+  expect(Calculator.getWidthHeightRatio(adapted)).toBe(1);
 });
