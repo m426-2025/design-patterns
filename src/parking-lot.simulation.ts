@@ -1,5 +1,4 @@
-import { ParkingLot } from "./parking-lot.js";
-import { Display } from "./display.js";
+import { ParkingLot, Display } from "./parking-lot.js";
 
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 const rand = (min: number, max: number) =>

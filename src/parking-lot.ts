@@ -1,6 +1,24 @@
-import { Publisher } from "./publisher.js";
-import { Subscriber } from "./subscriber.js";
 import { ParkingLotEvent } from "./event.";
+
+export interface Subscriber {
+  update(event: ParkingLotEvent): void;
+}
+
+export interface Publisher {
+  subscribe(subscriber: Subscriber): void;
+  unsubscribe(subscriber: Subscriber): void;
+  notify(event: ParkingLotEvent): void;
+}
+
+export class Display implements Subscriber {
+  constructor(private name: string) {}
+
+  update(event: ParkingLotEvent): void {
+    console.log(
+      `[${this.name}] ${event.parkingLotName}: ${event.occupied}/${event.capacity} occupied — car ${event.type}ed`
+    );
+  }
+}
 
 export class ParkingLot implements Publisher {
   public occupied: number = 0;
