@@ -28,7 +28,7 @@ In `src/parking-lot.ts` und `src/parking-lot.simulation.ts` ist eine Parkhaussim
 
 Ein Parkhaus (`ParkingLot`) hat einen Namen (`name`), eine Kapazität (`capacity`) und einen Füllstand (`occupied`). Mithilfe der Methoden `enter()` und `exit()` kann ein Auto in das Parkhaus einfahren bzw. dieses verlassen.
 
-In `index.ts` wird das Ein- und Ausfahren von Autos mit asynchronen Funktionen simuliert. Die Funktion `display` zeigt dabei mittels _Polling_ (Abfrage in regelmässigen Intervallen) den Füllstand an.
+In `parking-lot.simulation.ts` wird das Ein- und Ausfahren von Autos mit asynchronen Funktionen simuliert. Die Funktion `display` zeigt dabei mittels _Polling_ (Abfrage in regelmässigen Intervallen) den Füllstand an.
 
 Bauen Sie die Simulation foldendermassen um:
 
